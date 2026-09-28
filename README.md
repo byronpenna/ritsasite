@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RITSA Electrónica
 
-## Getting Started
+Sitio web de RITSA Electrónica: plataforma de aprendizaje y tutoriales en video sobre
+reparación de electrónicos y proyectos DIY (Arduino, ESP32, etc.).
 
-First, run the development server:
+Construido con [Next.js](https://nextjs.org) (App Router + TypeScript + Tailwind CSS) para
+poder agregar más adelante una sección administrativa privada (login, gestión de contenido).
+
+## Desarrollo
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) (Next usará otro puerto libre, como 3002,
+si el 3000 ya está en uso).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Contenido editable
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/data/channel.ts` — datos del canal de YouTube y enlaces sociales.
+- `src/data/videos.ts` — lista de videos destacados y del catálogo de tutoriales (solo hace
+  falta el ID del video de YouTube, el título, categoría, etc.).
+- `src/data/categories.ts` — tarjetas de categorías de la home.
+- `public/images/` — imágenes del sitio (logo, banner, fotos de taller/proyectos).
 
-## Learn More
+## Estructura de páginas
 
-To learn more about Next.js, take a look at the following resources:
+- `/` — inicio (hero, tutoriales destacados, categorías, sobre nosotros, redes sociales).
+- `/tutoriales` — catálogo completo de videos con filtro por categoría.
+- `/nosotros` — historia y misión del canal.
+- `/contacto` — canales de contacto (YouTube, Facebook) y feed de Facebook en vivo.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Próximos pasos sugeridos
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Sección `/admin` con autenticación (por ejemplo NextAuth) para gestionar tutoriales sin
+  tocar código.
+- Mover `src/data/videos.ts` a una base de datos o CMS una vez exista el panel admin.
