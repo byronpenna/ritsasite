@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import TutorialesGrid from "@/components/TutorialesGrid";
 
 export const metadata: Metadata = {
@@ -7,12 +8,7 @@ export const metadata: Metadata = {
     "Todos los tutoriales de RITSA Electrónica: reparación de TVs y celulares, proyectos con Arduino y ESP32, y herramientas de taller.",
 };
 
-export default async function TutorialesPage(props: PageProps<"/tutoriales">) {
-  const params = await props.searchParams;
-  const categoria = Array.isArray(params.categoria)
-    ? params.categoria[0]
-    : params.categoria;
-
+export default function TutorialesPage() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
       <div className="max-w-2xl">
@@ -24,7 +20,9 @@ export default async function TutorialesPage(props: PageProps<"/tutoriales">) {
       </div>
 
       <div className="mt-10">
-        <TutorialesGrid initialCategory={categoria} />
+        <Suspense fallback={null}>
+          <TutorialesGrid />
+        </Suspense>
       </div>
     </section>
   );

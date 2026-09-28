@@ -1,5 +1,6 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
 import { videos, type VideoCategory } from "@/data/videos";
 import VideoCard from "./VideoCard";
@@ -12,11 +13,10 @@ const tabs: Array<VideoCategory | "Todos"> = [
   "Canal",
 ];
 
-export default function TutorialesGrid({
-  initialCategory,
-}: {
-  initialCategory?: string;
-}) {
+export default function TutorialesGrid() {
+  const searchParams = useSearchParams();
+  const initialCategory = searchParams.get("categoria") ?? undefined;
+
   const initial =
     (tabs as string[]).includes(initialCategory ?? "") && initialCategory
       ? (initialCategory as VideoCategory | "Todos")
