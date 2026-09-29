@@ -9,6 +9,7 @@ import { CloseIcon, FacebookIcon, MenuIcon, YoutubeIcon } from "./icons";
 const links = [
   { href: "/", label: "Inicio" },
   { href: "/tutoriales", label: "Tutoriales" },
+  { href: "/posts", label: "Posts" },
   { href: "/nosotros", label: "Nosotros" },
   { href: "/contacto", label: "Contacto" },
 ];

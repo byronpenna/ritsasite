@@ -36,6 +36,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# raw source material for posts (may contain unredacted credentials) — processed
+# copies live in public/posts/, this folder is never meant to be published
+/data_for_first_post/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
