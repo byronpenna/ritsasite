@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPostBySlug, posts } from "@/data/posts";
 import DownloadCard from "@/components/DownloadCard";
+import GithubCodeWidget from "@/components/GithubCodeWidget";
 import { PlayIcon } from "@/components/icons";
 
 export function generateStaticParams() {
@@ -135,6 +136,24 @@ export default async function PostPage(props: PageProps<"/posts/[slug]">) {
             {post.downloads.map((download) => (
               <DownloadCard key={download.href} download={download} />
             ))}
+          </div>
+        </section>
+      )}
+
+      {/* Código en GitHub */}
+      {post.githubRepo && (
+        <section className="mt-10">
+          <h2 className="text-xl font-bold text-brand-900">Código fuente</h2>
+          <p className="mt-2 text-sm text-brand-900/70">
+            Vista previa en vivo del repositorio en GitHub, siempre con la última versión del
+            código.
+          </p>
+          <div className="mt-4">
+            <GithubCodeWidget
+              repo={post.githubRepo.repo}
+              branch={post.githubRepo.branch}
+              file={post.githubRepo.file}
+            />
           </div>
         </section>
       )}

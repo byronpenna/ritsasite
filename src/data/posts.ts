@@ -29,6 +29,11 @@ export type Post = {
   gallery: PostImage[];
   downloads: PostDownload[];
   relatedVideos: PostRelatedVideo[];
+  githubRepo?: {
+    repo: string; // "owner/name"
+    branch?: string;
+    file: string; // main file to preview, path within the repo
+  };
 };
 
 export const posts: Post[] = [
@@ -76,7 +81,7 @@ export const posts: Post[] = [
       {
         label: "Código: ESP32-S3 Solo Miner",
         description:
-          "Sketch de Arduino del proyecto complementario (recuerda reemplazar tu SSID y clave Wi-Fi antes de subirlo).",
+          "Sketch de Arduino del proyecto complementario (recuerda reemplazar tu SSID y clave Wi-Fi antes de subirlo). También disponible en GitHub, más abajo.",
         href: "/posts/bitaxe-gamma-600x/esp32-solo-miner-codigo.zip",
         fileType: "ZIP",
       },
@@ -95,6 +100,11 @@ export const posts: Post[] = [
         title: 'Probador de Mosfets casero "REMAKE"',
       },
     ],
+    githubRepo: {
+      repo: "byronpenna/minador-esp32",
+      branch: "main",
+      file: "README.md",
+    },
   },
 ];
 
