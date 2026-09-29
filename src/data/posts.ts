@@ -34,6 +34,11 @@ export type Post = {
     branch?: string;
     file: string; // main file to preview, path within the repo
   };
+  pdfEmbed?: {
+    label: string;
+    href: string;
+    pages?: number;
+  };
 };
 
 export const posts: Post[] = [
@@ -104,6 +109,11 @@ export const posts: Post[] = [
       repo: "byronpenna/minador-esp32",
       branch: "main",
       file: "README.md",
+    },
+    pdfEmbed: {
+      label: "Esquemático completo",
+      href: "/posts/bitaxe-gamma-600x/bitaxe-gamma-600x-esquematico.pdf",
+      pages: 5,
     },
   },
 ];

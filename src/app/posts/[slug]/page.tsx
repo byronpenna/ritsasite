@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { getPostBySlug, posts } from "@/data/posts";
 import DownloadCard from "@/components/DownloadCard";
 import GithubCodeWidget from "@/components/GithubCodeWidget";
+import PdfViewerWidget from "@/components/PdfViewerWidget";
 import { PlayIcon } from "@/components/icons";
 
 export function generateStaticParams() {
@@ -124,6 +125,23 @@ export default async function PostPage(props: PageProps<"/posts/[slug]">) {
                 />
               </a>
             ))}
+          </div>
+        </section>
+      )}
+
+      {/* PDF embebido */}
+      {post.pdfEmbed && (
+        <section className="mt-10">
+          <h2 className="text-xl font-bold text-brand-900">Esquemático</h2>
+          <p className="mt-2 text-sm text-brand-900/70">
+            Míralo directamente aquí o descárgalo para consultarlo sin conexión.
+          </p>
+          <div className="mt-4">
+            <PdfViewerWidget
+              label={post.pdfEmbed.label}
+              href={post.pdfEmbed.href}
+              pages={post.pdfEmbed.pages}
+            />
           </div>
         </section>
       )}
