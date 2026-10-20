@@ -6,6 +6,7 @@ import { getPostBySlug, posts } from "@/data/posts";
 import DownloadCard from "@/components/DownloadCard";
 import GithubCodeWidget from "@/components/GithubCodeWidget";
 import PdfViewerWidget from "@/components/PdfViewerWidget";
+import PostGallery from "@/components/PostGallery";
 import { PlayIcon } from "@/components/icons";
 
 export function generateStaticParams() {
@@ -107,24 +108,11 @@ export default async function PostPage(props: PageProps<"/posts/[slug]">) {
       {post.gallery.length > 0 && (
         <section className="mt-10">
           <h2 className="text-xl font-bold text-brand-900">Imágenes</h2>
-          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {post.gallery.map((img) => (
-              <a
-                key={img.src}
-                href={img.src}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative block aspect-video overflow-hidden rounded-2xl"
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  sizes="(min-width: 640px) 50vw, 100vw"
-                  className="object-cover transition hover:scale-105"
-                />
-              </a>
-            ))}
+          <p className="mt-2 text-sm text-brand-900/70">
+            Haz clic en una imagen para verla en grande.
+          </p>
+          <div className="mt-4">
+            <PostGallery images={post.gallery} />
           </div>
         </section>
       )}

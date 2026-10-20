@@ -92,3 +92,38 @@ export function EyeIcon({ className }: { className?: string }) {
     </svg>
   );
 }
+
+export function ZoomIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" className={className} aria-hidden="true">
+      <circle cx="10.5" cy="10.5" r="6.5" />
+      <path d="M15.3 15.3 21 21M10.5 7.5v6M7.5 10.5h6" />
+    </svg>
+  );
+}
+
+export function ChevronLeftIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="M15 18l-6-6 6-6" />
+    </svg>
+  );
+}
+
+export function ChevronRightIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="M9 18l6-6-6-6" />
+    </svg>
+  );
+}
+
+export function CpuIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <rect x="6" y="6" width="12" height="12" rx="1.5" />
+      <rect x="9.5" y="9.5" width="5" height="5" rx="0.5" />
+      <path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3" />
+    </svg>
+  );
+}

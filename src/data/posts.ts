@@ -8,6 +8,10 @@ export type PostDownload = {
 export type PostImage = {
   src: string;
   alt: string;
+  exploreLink?: {
+    href: string;
+    label: string;
+  };
 };
 
 export type PostRelatedVideo = {
@@ -149,6 +153,10 @@ export const posts: Post[] = [
       {
         src: "/posts/pepew-miner-esp32-s3/pepew-miner-esquematico.png",
         alt: "Esquemático completo del RITSA PEPEW Miner Carrier V1.0",
+        exploreLink: {
+          href: "/posts/pepew-miner-esp32-s3/esquematico",
+          label: "Explora los componentes y el pinout en una pantalla interactiva",
+        },
       },
       {
         src: "/posts/pepew-miner-esp32-s3/pepew-miner-conexiones.png",
